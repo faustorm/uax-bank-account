@@ -1,4 +1,4 @@
-from classes import BankAccount, Owner
+from classes import BankAccount, Owner, SavingsAccount, CheckingAccount
 
 owner = Owner("Pepe")
 
@@ -18,3 +18,13 @@ print(cuenta1.get_balance())
 print(cuenta1)
 print("cuentas: ")
 print(owner.get_bank_accounts())
+
+cuentaAhorros1 = SavingsAccount("HF56565","Santander", owner)
+cuentaAhorros1.deposit(85)
+print(f"{cuentaAhorros1.interestGenerated(100):.2f} {cuentaAhorros1.currency}")
+
+print(owner.get_bank_accounts())
+
+cuentaCredito = CheckingAccount("XXX999", "Satander", owner)
+cuentaCredito.withdraw(992)
+print(f"A pagar el mes que viene (de momento): {cuentaCredito.get_credit_to_pay():.2f} {cuentaCredito.currency}")
